@@ -4,9 +4,9 @@ COPY ./package.json .
 COPY ./yarn.lock .
 RUN yarn install
 COPY . .
-ARG OMDB_API_KEY
-ENV OMDB_API_KEY=${OMDB_API_KEY}
-ENV VITE_APP_API_ENDPOINT_URL="http://www.omdbapi.com/"
+ARG TMDB_API_KEY
+ENV VITE_APP_TMDB_API_KEY=${TMDB_API_KEY}
+ENV VITE_APP_TMDB_API_ENDPOINT_URL="https://api.themoviedb.org/3"
 RUN yarn build
 
 FROM nginx:stable-alpine
